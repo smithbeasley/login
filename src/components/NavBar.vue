@@ -35,11 +35,10 @@
 </template>
 <script setup>
 import {useRouter} from 'vue-router'
-import {isAuthenticated} from '../helpers/useAuth.js'
-
+import {isAuthenticated, signOut} from '../helpers/useAuth.js'
 const router = useRouter()
-const logout = () => {
-isAuthenticated.value = false
+const logout = async() => {
+await signOut()
 router.push('/')
 }
 
